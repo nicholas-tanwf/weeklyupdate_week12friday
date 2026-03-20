@@ -123,8 +123,6 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 .time-label .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);margin-top:1px}
 
 /* ── SLIDE 5 ── */
-.audit-n{font-size:52px;font-weight:900;line-height:1;color:var(--green)}
-.audit-d{font-size:24px;font-weight:700;color:rgba(255,255,255,.2)}
 .goal-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media(max-width:900px){.goal-compare{grid-template-columns:1fr}}
 .gc-card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
@@ -453,18 +451,12 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
   <div class="orb o1" style="bottom:-100px;top:auto;left:-100px;right:auto"></div><div class="orb o3"></div>
   <div class="pnum">05 / 05</div>
   <div class="inner">
-    <div class="fi d1" style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:18px">
-      <div style="flex:1">
-        <div class="badge">Week 12 · Goal Audit <span class="zh">第12周 · 目标审计</span></div>
-        <h2 style="margin-bottom:0">
-          <span class="en">Monday goals vs Friday output.</span>
-          <span class="zh">周一目标 vs 周五成果。</span>
-        </h2>
-      </div>
-      <div style="display:flex;align-items:baseline;gap:4px;padding-top:8px">
-        <span class="audit-n">~9</span>
-        <span class="audit-d">/10</span>
-      </div>
+    <div class="fi d1" style="margin-bottom:20px">
+      <div class="badge">Week 12 · Goal Audit <span class="zh">第12周 · 目标审计</span></div>
+      <h2 style="margin-bottom:0">
+        <span class="en">Monday goals vs Friday output.</span>
+        <span class="zh">周一目标 vs 周五成果。</span>
+      </h2>
     </div>
 
     <div class="goal-compare fi d2">
@@ -472,45 +464,46 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
       <!-- GOAL 1 -->
       <div class="gc-card gc-g1">
         <div class="gc-num">
-          <span class="en">Goal 1 · Event RSVPs</span>
-          <span class="zh">目标1 · 活动报名</span>
+          <span class="en">Goal 1 · Event</span>
+          <span class="zh">目标1 · 活动</span>
         </div>
         <div class="gc-title">
-          <span class="en">Generate 50+ RSVPs, confirm demo speakers &amp; applications</span>
-          <span class="zh">获取50+报名，确认演示嘉宾和申请</span>
+          <span class="en">50+ RSVPs · Demo speakers · Show &amp; Ask</span>
+          <span class="zh">50+报名 · 演示嘉宾 · 展示&提问</span>
         </div>
         <div>
-          <div class="gc-section green"><span class="en">✓ Hit</span><span class="zh">达成</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">55 RSVPs confirmed — exceeded 50 target by 10%<span class="zh">55个报名，超目标10%</span></span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">5 demo speakers — exceeded 3-speaker target by 67%<span class="zh">5位演示嘉宾，超目标67%</span></span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">3 Show &amp; Ask applications received<span class="zh">3份展示&提问申请</span></span></div>
+          <div class="gc-section green"><span class="en">✓ Done</span><span class="zh">已完成</span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">55 RSVPs confirmed<span class="zh">55个报名已确认</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">5 demo speakers confirmed<span class="zh">5位演示嘉宾已确认</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">3 Show &amp; Ask applications<span class="zh">3份展示&提问申请</span></span></div>
         </div>
         <div>
-          <div class="gc-section rose"><span class="en">⚠ External Blockers</span><span class="zh">外部阻碍</span></div>
-          <div class="gc-item"><span class="cross">✗</span><span class="txt">e27 not published despite 3 follow-ups<span class="zh">尽管3次跟进，e27仍未发布</span></span></div>
-          <div class="gc-item"><span class="cross">✗</span><span class="txt">NUS/NTU no response — needs longer lead time<span class="zh">NUS/NTU无回应——需更长提前期</span></span></div>
+          <div class="gc-section rose"><span class="en">✗ Blockers</span><span class="zh">阻碍</span></div>
+          <div class="gc-item"><span class="cross">✗</span><span class="txt">e27 content not published<span class="zh">e27内容未发布</span></span></div>
+          <div class="gc-item"><span class="cross">✗</span><span class="txt">NUS / NTU — no response<span class="zh">NUS/NTU无回应</span></span></div>
         </div>
-        <div class="gc-verdict vg">✓ Core target exceeded <span class="zh">核心目标超额完成</span></div>
       </div>
 
       <!-- GOAL 2 -->
       <div class="gc-card gc-g2">
         <div class="gc-num">
-          <span class="en">Goal 2 · n8n Automation</span>
-          <span class="zh">目标2 · n8n自动化</span>
+          <span class="en">Goal 2 · Automation</span>
+          <span class="zh">目标2 · 自动化</span>
         </div>
         <div class="gc-title">
-          <span class="en">Deploy live n8n workflow saving 2+ hrs/week</span>
-          <span class="zh">部署实时n8n工作流，每周节省2+小时</span>
+          <span class="en">n8n workflow live · 2+ hrs saved/week</span>
+          <span class="zh">n8n工作流上线 · 每周节省2+小时</span>
         </div>
         <div>
-          <div class="gc-section green"><span class="en">✓ Exceeded</span><span class="zh">超额完成</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">Workflow live — execution log confirmed<span class="zh">工作流已上线，执行日志已验证</span></span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">1–2 hrs saved daily (vs 2 hrs/week target)<span class="zh">每日节省1–2小时，超过每周目标</span></span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">Saved time drove 55 RSVPs + 5 demo speakers<span class="zh">节省时间直接推动55个报名和5位嘉宾</span></span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">Shared Discord team asset — zero maintenance<span class="zh">共享Discord资产——零日常维护</span></span></div>
+          <div class="gc-section green"><span class="en">✓ Done</span><span class="zh">已完成</span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">Workflow live, execution log verified<span class="zh">工作流已上线，执行日志已验证</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">1–2 hrs saved daily<span class="zh">每日节省1–2小时</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">Shared to team Discord — zero maintenance<span class="zh">已共享至团队Discord，零维护</span></span></div>
         </div>
-        <div class="gc-verdict vs">🌟 Phenomenal <span class="zh">卓越表现</span></div>
+        <div>
+          <div class="gc-section gold"><span class="en">⚡ In Progress</span><span class="zh">进行中</span></div>
+          <div class="gc-item"><span class="warn">⚡</span><span class="txt">LinkedIn scraping not yet live<span class="zh">LinkedIn抓取尚未上线</span></span></div>
+        </div>
       </div>
 
       <!-- GOAL 3 -->
@@ -520,20 +513,22 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
           <span class="zh">目标3 · RiteSet</span>
         </div>
         <div class="gc-title">
-          <span class="en">Full audit, branding sign-off, App Store submission</span>
-          <span class="zh">完整审计、品牌确认、App Store提交</span>
+          <span class="en">Full audit · Branding sign-off · App Store</span>
+          <span class="zh">完整审计 · 品牌确认 · App Store</span>
         </div>
         <div>
           <div class="gc-section green"><span class="en">✓ Done</span><span class="zh">已完成</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">Full app audit — critical bugs identified &amp; logged<span class="zh">完整应用审计，关键问题已记录</span></span></div>
-          <div class="gc-item"><span class="tick">✓</span><span class="txt">App Store submission made — Apple review received<span class="zh">App Store已提交，收到Apple审核</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">Full app audit — bugs identified &amp; logged<span class="zh">完整审计，问题已记录</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">App Store submitted<span class="zh">App Store已提交</span></span></div>
         </div>
         <div>
           <div class="gc-section gold"><span class="en">⚡ In Progress</span><span class="zh">进行中</span></div>
-          <div class="gc-item"><span class="warn">⚡</span><span class="txt">Apple rejected: sandbox + medical disclaimer — fixing<span class="zh">Apple拒绝：沙箱+医疗免责声明，修复中</span></span></div>
-          <div class="gc-item"><span class="warn">⚡</span><span class="txt">Design sign-off moved to Week 13<span class="zh">设计确认移至第13周</span></span></div>
+          <div class="gc-item"><span class="warn">⚡</span><span class="txt">Design sign-off — Week 13<span class="zh">设计确认移至第13周</span></span></div>
         </div>
-        <div class="gc-verdict vw">⚡ Partial — resubmission in progress <span class="zh">部分完成</span></div>
+        <div>
+          <div class="gc-section rose"><span class="en">✗ Blockers</span><span class="zh">阻碍</span></div>
+          <div class="gc-item"><span class="cross">✗</span><span class="txt">Apple rejected — sandbox &amp; medical disclaimer<span class="zh">Apple拒绝：沙箱与医疗免责声明</span></span></div>
+        </div>
       </div>
 
     </div>
