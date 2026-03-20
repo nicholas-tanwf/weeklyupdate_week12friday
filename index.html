@@ -60,20 +60,24 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 .d1{transition-delay:.07s}.d2{transition-delay:.16s}.d3{transition-delay:.26s}.d4{transition-delay:.36s}.d5{transition-delay:.46s}
 
 /* ── SLIDE 1 ── */
-.s1-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;margin-top:16px}
-@media(max-width:900px){.s1-wrap{grid-template-columns:1fr}}
-.luma-img{width:100%;border-radius:16px;border:1px solid var(--gb);display:block}
-.speakers-section{display:flex;flex-direction:column;gap:20px}
+.s1-top{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;margin-top:14px}
+@media(max-width:900px){.s1-top{grid-template-columns:1fr}}
 .spk-group-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 .spk-group-label .zh{font-size:10px;display:inline;letter-spacing:0;font-family:'Noto Sans SC',sans-serif;margin-left:5px;opacity:.85;font-weight:400}
-.spk-card{display:flex;align-items:center;gap:16px;background:var(--glass);border:1px solid var(--gb);border-radius:14px;padding:16px 20px}
-.spk-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#4f8fff);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff;flex-shrink:0}
-.spk-name{font-size:16px;font-weight:700;color:var(--text)}
-.spk-role{font-size:12px;color:var(--muted);line-height:1.5;margin-top:3px}
-.spk-role .zh{font-size:11px;font-family:'Noto Sans SC',sans-serif;display:inline;margin-left:4px;opacity:.88;font-weight:400}
-.demo-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--accent)}
-.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.spk-card{display:flex;align-items:center;gap:14px;background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:12px 16px}
+.spk-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#4f8fff);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#fff;flex-shrink:0;object-fit:cover}
+.spk-name{font-size:15px;font-weight:700;color:var(--text)}
+.spk-role{font-size:11px;color:var(--muted);line-height:1.5;margin-top:2px}
+.spk-role .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;display:inline;margin-left:4px;opacity:.88;font-weight:400}
+/* Demo speaker strip */
+.demo-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:18px}
+@media(max-width:900px){.demo-strip{grid-template-columns:repeat(3,1fr)}}
+.ds-card{display:flex;flex-direction:column;align-items:center;gap:9px;background:var(--glass);border:1px solid var(--gb);border-radius:14px;padding:16px 10px;text-align:center}
+.ds-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gb);flex-shrink:0}
+.ds-initials{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#4f8fff);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;flex-shrink:0}
+.ds-name{font-size:12px;font-weight:700;color:var(--text);line-height:1.3}
+.ds-product{font-size:10px;color:var(--accent);font-weight:600;margin-top:1px}
+.ds-product.green{color:var(--green)}.ds-product.gold{color:var(--gold)}.ds-product.purple{color:var(--purple)}.ds-product.blue{color:var(--blue)}
 
 /* ── SLIDE 2 ── */
 .demo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
@@ -167,51 +171,93 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
       <span class="en">Event Overview &amp; Speakers.</span>
       <span class="zh">活动概览与演讲嘉宾。</span>
     </h2>
-    <div class="s1-wrap fi d2">
-      <div style="display:flex;flex-direction:column;gap:14px">
+
+    <!-- TOP: Stats + Opening Speakers -->
+    <div class="s1-top fi d2">
+      <!-- Lu.ma Stats -->
+      <div style="display:flex;flex-direction:column;gap:12px">
         <div class="eyebrow">Live Stats — Lu.ma <span class="zh">实时数据</span></div>
-        <img src="img/rsvp.png" style="width:100%;border-radius:14px;border:1px solid var(--gb);display:block;object-fit:contain" alt="57 Going">
-        <img src="img/pageviews.png" style="width:100%;border-radius:14px;border:1px solid var(--gb);display:block;object-fit:contain" alt="Page Views">
+        <img src="img/rsvp.png" style="width:100%;border-radius:12px;border:1px solid var(--gb);display:block;object-fit:contain" alt="57 Going">
+        <img src="img/pageviews.png" style="width:100%;border-radius:12px;border:1px solid var(--gb);display:block;object-fit:contain" alt="Page Views">
       </div>
-      <div class="speakers-section">
-        <div>
-          <div class="spk-group-label">Opening Speakers <span class="zh">开场演讲嘉宾</span></div>
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <div class="spk-card">
-              <div class="spk-avatar">LF</div>
-              <div>
-                <div class="spk-name">Li Fan</div>
-                <div class="spk-role">Founder, Whale Art Museum <span class="zh">创始人，鲸鱼艺术馆</span></div>
-              </div>
-            </div>
-            <div class="spk-card">
-              <div class="spk-avatar" style="background:linear-gradient(135deg,#22c55e,#4f8fff)">TN</div>
-              <div>
-                <div class="spk-name">Terrence Ngu</div>
-                <div class="spk-role">Founder, Hashmeta <span class="zh">创始人，Hashmeta</span></div>
-              </div>
-            </div>
-            <div class="spk-card">
-              <div class="spk-avatar" style="background:linear-gradient(135deg,#e8c36a,#fb7185)">DJ</div>
-              <div>
-                <div class="spk-name">Danielle Jiang</div>
-                <div class="spk-role">Deputy Director, Financial Infrastructure &amp; AI Office, MAS <span class="zh">副司长，金融基础设施与AI办公室，MAS</span></div>
-              </div>
+      <!-- Opening Speakers -->
+      <div>
+        <div class="spk-group-label">Opening Speakers <span class="zh">开场演讲嘉宾</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="spk-card">
+            <div class="spk-avatar">LF</div>
+            <div>
+              <div class="spk-name">Li Fan</div>
+              <div class="spk-role">Founder, Whale Art Museum <span class="zh">创始人，鲸鱼艺术馆</span></div>
             </div>
           </div>
-        </div>
-        <div style="margin-top:4px">
-          <div class="spk-group-label">Confirmed Demo Speakers <span class="zh">已确认演示嘉宾</span></div>
-          <div class="demo-pills">
-            <span class="pill"><span class="dot"></span>ChronoAI (Wendy + Calvin)</span>
-            <span class="pill" style="background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.2);color:var(--green)"><span class="dot" style="background:var(--green)"></span>Andrew Ma · Soulsoul</span>
-            <span class="pill" style="background:rgba(232,195,106,.1);border-color:rgba(232,195,106,.2);color:var(--gold)"><span class="dot" style="background:var(--gold)"></span>Elva Qi · Ketchup AI</span>
-            <span class="pill" style="background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.2);color:var(--purple)"><span class="dot" style="background:var(--purple)"></span>Alexander Kichev · Magicorium</span>
-            <span class="pill" style="background:rgba(79,143,255,.1);border-color:rgba(79,143,255,.2);color:var(--blue)"><span class="dot" style="background:var(--blue)"></span>Jonathan Liew · inflect.ai</span>
+          <div class="spk-card">
+            <div class="spk-avatar" style="background:linear-gradient(135deg,#22c55e,#4f8fff)">TN</div>
+            <div>
+              <div class="spk-name">Terrence Ngu</div>
+              <div class="spk-role">Founder, Hashmeta <span class="zh">创始人，Hashmeta</span></div>
+            </div>
+          </div>
+          <div class="spk-card">
+            <div class="spk-avatar" style="background:linear-gradient(135deg,#e8c36a,#fb7185)">DJ</div>
+            <div>
+              <div class="spk-name">Danielle Jiang</div>
+              <div class="spk-role">Deputy Director, Financial Infrastructure &amp; AI Office, MAS <span class="zh">副司长，金融基础设施与AI办公室，MAS</span></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- BOTTOM: Demo Speakers photo strip -->
+    <div class="fi d3">
+      <div class="spk-group-label" style="margin-top:18px;margin-bottom:12px">Demo Speakers <span class="zh">演示嘉宾</span></div>
+      <div class="demo-strip">
+        <div class="ds-card">
+          <img src="img/wendy.png" class="ds-photo" alt="Wendy">
+          <div>
+            <div class="ds-name">Wendy</div>
+            <div class="ds-product">ChronoAI</div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <img src="img/calvin.png" class="ds-photo" alt="Calvin">
+          <div>
+            <div class="ds-name">Calvin</div>
+            <div class="ds-product">ChronoAI</div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <div class="ds-initials">AM</div>
+          <div>
+            <div class="ds-name">Andrew Ma</div>
+            <div class="ds-product green">Soulsoul</div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <img src="img/elva.png" class="ds-photo" alt="Elva Qi">
+          <div>
+            <div class="ds-name">Elva Qi</div>
+            <div class="ds-product gold">Ketchup AI</div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <img src="img/alexander.png" class="ds-photo" alt="Alexander Kichev">
+          <div>
+            <div class="ds-name">Alexander Kichev</div>
+            <div class="ds-product purple">Magicorium</div>
+          </div>
+        </div>
+        <div class="ds-card">
+          <img src="img/jonathan.png" class="ds-photo" alt="Jonathan Liew">
+          <div>
+            <div class="ds-name">Jonathan Liew</div>
+            <div class="ds-product blue">inflect.ai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
