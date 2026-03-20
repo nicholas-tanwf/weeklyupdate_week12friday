@@ -79,17 +79,18 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 .ds-product.green{color:var(--green)}.ds-product.gold{color:var(--gold)}.ds-product.purple{color:var(--purple)}.ds-product.blue{color:var(--blue)}
 
 /* ── SLIDE 2 ── */
-.demo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
-@media(max-width:1100px){.demo-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:700px){.demo-grid{grid-template-columns:1fr 1fr}}
+.demo-layout{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;align-items:start}
+@media(max-width:900px){.demo-layout{grid-template-columns:1fr}}
+.demo-grid-right{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .demo-card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.demo-img{width:100%;height:220px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--gb)}
-.demo-chrono{width:100%;height:220px;background:linear-gradient(135deg,#0f0f1a,#1a1030);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-bottom:1px solid var(--gb)}
-.demo-body{padding:16px}
-.demo-speaker{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
-.demo-product{font-size:15px;font-weight:700;color:var(--text);margin-bottom:7px}
-.demo-desc .en{font-size:12px;color:var(--muted);line-height:1.6}
-.demo-desc .zh{font-size:11px;color:var(--muted2);font-family:'Noto Sans SC',sans-serif;line-height:1.5;margin-top:5px}
+.demo-card.hero .demo-img{height:340px}
+.demo-img{width:100%;height:200px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--gb)}
+.demo-chrono{width:100%;height:340px;background:linear-gradient(135deg,#0f0f1a,#1a1030);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-bottom:1px solid var(--gb)}
+.demo-body{padding:14px 16px}
+.demo-speaker{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.demo-product{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px}
+.demo-desc .en{font-size:12px;color:var(--muted);line-height:1.55}
+.demo-desc .zh{font-size:11px;color:var(--muted2);font-family:'Noto Sans SC',sans-serif;line-height:1.5;margin-top:4px}
 
 /* ── SLIDE 3 ── */
 .attendee-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:20px}
@@ -277,66 +278,76 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
       <span class="en">Real AI products — built, shipped, and walked through live. No slides. No theory.</span>
       <span class="zh">真实AI产品——构建、上线，现场演示。无幻灯片，无理论。</span>
     </p>
-    <div class="demo-grid fi d3">
-      <div class="demo-card">
+    <div class="demo-layout fi d3">
+
+      <!-- LEFT: ChronoAI hero -->
+      <div class="demo-card hero">
         <div class="demo-chrono">
-          <div style="font-size:36px">⚡</div>
-          <div style="font-size:16px;font-weight:800;color:var(--text)">ChronoAI</div>
-          <div style="font-size:12px;color:var(--muted)">SoulGarden + RiteSet</div>
+          <div style="font-size:44px">⚡</div>
+          <div style="font-size:20px;font-weight:800;color:var(--text);letter-spacing:-0.5px">ChronoAI</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">SoulGarden + RiteSet</div>
+          <div style="margin-top:14px;display:flex;gap:8px">
+            <img src="img/soulsoul.png" style="width:90px;height:60px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid rgba(255,255,255,.1)" alt="SoulGarden preview">
+          </div>
         </div>
         <div class="demo-body">
           <div class="demo-speaker">Wendy + Calvin</div>
           <div class="demo-product">SoulGarden &amp; RiteSet</div>
           <div class="demo-desc">
-            <span class="en">From idea to shipped product in 3 days — full ChronoAI workflow, design, and GTM. Live.</span>
-            <span class="zh">从创意到上线产品仅需3天——完整工作流程、设计和GTM过程，全程直播。</span>
+            <span class="en">From idea to shipped product in 3 days — full build, design, and GTM workflow. Live walkthrough.</span>
+            <span class="zh">从创意到上线仅需3天——完整构建、设计和GTM流程，现场演示。</span>
           </div>
         </div>
       </div>
-      <div class="demo-card">
-        <img src="img/soulsoul.png" class="demo-img" alt="Soulsoul">
-        <div class="demo-body">
-          <div class="demo-speaker">Andrew Ma</div>
-          <div class="demo-product">Soulsoul</div>
-          <div class="demo-desc">
-            <span class="en">Interactive reading app where children talk to story characters.</span>
-            <span class="zh">让孩子与故事角色对话的互动阅读应用。</span>
+
+      <!-- RIGHT: 2×2 grid -->
+      <div class="demo-grid-right">
+        <div class="demo-card">
+          <img src="img/soulsoul.png" class="demo-img" alt="Soulsoul">
+          <div class="demo-body">
+            <div class="demo-speaker">Andrew Ma</div>
+            <div class="demo-product">Soulsoul</div>
+            <div class="demo-desc">
+              <span class="en">Kids talk to story characters in real time.</span>
+              <span class="zh">孩子与故事角色实时对话。</span>
+            </div>
+          </div>
+        </div>
+        <div class="demo-card">
+          <img src="img/ketchup.png" class="demo-img" alt="Ketchup AI">
+          <div class="demo-body">
+            <div class="demo-speaker">Elva Qi</div>
+            <div class="demo-product">Ketchup AI</div>
+            <div class="demo-desc">
+              <span class="en">Turns sales conversations into actionable intelligence.</span>
+              <span class="zh">将销售对话转化为可执行情报。</span>
+            </div>
+          </div>
+        </div>
+        <div class="demo-card">
+          <img src="img/magicorium.png" class="demo-img" alt="Magicorium">
+          <div class="demo-body">
+            <div class="demo-speaker">Alexander Kichev</div>
+            <div class="demo-product">Magicorium</div>
+            <div class="demo-desc">
+              <span class="en">Open hub for AI agent personas — browse, build, deploy.</span>
+              <span class="zh">AI代理人格开放平台——浏览、构建、部署。</span>
+            </div>
+          </div>
+        </div>
+        <div class="demo-card">
+          <img src="img/inflect.png" class="demo-img" alt="inflect.ai">
+          <div class="demo-body">
+            <div class="demo-speaker">Jonathan Liew</div>
+            <div class="demo-product">inflect.ai</div>
+            <div class="demo-desc">
+              <span class="en">GEO — make your content AI-citable.</span>
+              <span class="zh">生成式引擎优化——让内容被AI引用。</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="demo-card">
-        <img src="img/ketchup.png" class="demo-img" alt="Ketchup AI">
-        <div class="demo-body">
-          <div class="demo-speaker">Elva Qi</div>
-          <div class="demo-product">Ketchup AI</div>
-          <div class="demo-desc">
-            <span class="en">Turns sales conversations into actionable intelligence for relationship-driven teams.</span>
-            <span class="zh">将销售对话转化为可执行情报，助力以关系为导向的销售团队。</span>
-          </div>
-        </div>
-      </div>
-      <div class="demo-card">
-        <img src="img/magicorium.png" class="demo-img" alt="Magicorium">
-        <div class="demo-body">
-          <div class="demo-speaker">Alexander Kichev</div>
-          <div class="demo-product">Magicorium</div>
-          <div class="demo-desc">
-            <span class="en">Open hub for AI agent personas — browse, build, and deploy instantly.</span>
-            <span class="zh">AI代理人格开放平台——浏览、构建并即时部署角色身份。</span>
-          </div>
-        </div>
-      </div>
-      <div class="demo-card">
-        <img src="img/inflect.png" class="demo-img" alt="inflect.ai">
-        <div class="demo-body">
-          <div class="demo-speaker">Jonathan Liew</div>
-          <div class="demo-product">inflect.ai</div>
-          <div class="demo-desc">
-            <span class="en">Generative Engine Optimization — making content AI-citable.</span>
-            <span class="zh">生成式引擎优化——让内容被AI引擎引用。</span>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
