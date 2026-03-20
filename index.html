@@ -59,6 +59,18 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 .fi.visible{opacity:1;transform:none}
 .d1{transition-delay:.07s}.d2{transition-delay:.16s}.d3{transition-delay:.26s}.d4{transition-delay:.36s}.d5{transition-delay:.46s}
 
+/* ── SLIDE 0 — PROGRAM ── */
+.prog-timeline{display:flex;flex-direction:column;gap:0;margin-top:20px}
+.prog-row{display:grid;grid-template-columns:160px 20px 1fr;gap:0 16px;align-items:flex-start;position:relative}
+.prog-row:not(:last-child)::after{content:'';position:absolute;left:167px;top:20px;width:2px;height:calc(100% + 4px);background:rgba(255,255,255,.08)}
+.prog-time{font-size:12px;font-weight:600;color:var(--muted);padding-top:2px;padding-bottom:28px;white-space:nowrap}
+.prog-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px currentColor;border:2px solid var(--bg)}
+.prog-content{padding-bottom:28px}
+.prog-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.3}
+.prog-title .zh{font-size:13px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);font-weight:400;display:inline;margin-left:6px}
+.prog-detail{font-size:12px;color:var(--muted);line-height:1.6;margin-top:4px}
+.prog-detail .zh{font-size:11px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);display:block;margin-top:2px}
+
 /* ── SLIDE 1 ── */
 .s1-top{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;margin-top:14px}
 @media(max-width:900px){.s1-top{grid-template-columns:1fr}}
@@ -149,10 +161,73 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 <!-- Nav Dots -->
 <div class="nav-dots" id="navDots"></div>
 
+<!-- ═══ SLIDE 0 — PROGRAM FLOW ════════════════════════════════════════════ -->
+<section class="slide" id="s_prog">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="pnum">01 / 06</div>
+  <div class="inner">
+    <div class="fi d1">
+      <div class="badge green">Friday, March 27 · 4:30 PM – 7:30 PM <span class="zh">3月27日星期五 · 下午4:30–7:30</span></div>
+    </div>
+    <h2 class="fi d1">
+      <span class="en">Program Flow.</span>
+      <span class="zh">活动流程。</span>
+    </h2>
+    <div class="prog-timeline fi d2">
+
+      <div class="prog-row">
+        <div class="prog-time">4:30 – 5:00 PM</div>
+        <div class="prog-dot" style="background:var(--muted)"></div>
+        <div class="prog-content">
+          <div class="prog-title">Doors Open <span class="zh">开门迎宾</span></div>
+          <div class="prog-detail">VIPs &amp; speakers early mingle · Lobby <span class="zh">贵宾与演讲者提前交流 · 大堂</span></div>
+        </div>
+      </div>
+
+      <div class="prog-row">
+        <div class="prog-time">5:00 – 5:30 PM</div>
+        <div class="prog-dot" style="background:var(--accent)"></div>
+        <div class="prog-content">
+          <div class="prog-title">Opening Speeches <span class="zh">开场演讲</span></div>
+          <div class="prog-detail">Lobby · Tetiana Kodliuk (TBC) · Terrence Ngu, Hashmeta · Danielle Jiang, MAS <span class="zh">大堂 · Tetiana（待确认）· Terrence · Danielle</span></div>
+        </div>
+      </div>
+
+      <div class="prog-row">
+        <div class="prog-time">5:30 – 6:30 PM</div>
+        <div class="prog-dot" style="background:var(--blue)"></div>
+        <div class="prog-content">
+          <div class="prog-title">Demo Sessions <span class="zh">产品演示环节</span></div>
+          <div class="prog-detail">Lobby · ChronoAI · Andrew Ma (Soulsoul) · Elva Qi (Ketchup AI) · Alexander Kichev (Magicorium) · Jonathan Liew (inflect.ai) <span class="zh">大堂 · 5个产品现场演示</span></div>
+        </div>
+      </div>
+
+      <div class="prog-row">
+        <div class="prog-time">6:30 – 6:45 PM</div>
+        <div class="prog-dot" style="background:var(--gold)"></div>
+        <div class="prog-content">
+          <div class="prog-title">AI Investment Talk <span class="zh">AI投资分享</span></div>
+          <div class="prog-detail">Lobby · Anna, Unicorn Verse <span class="zh">大堂 · Anna，Unicorn Verse</span></div>
+        </div>
+      </div>
+
+      <div class="prog-row" style="--line:transparent">
+        <div class="prog-time">6:45 – 7:30 PM</div>
+        <div class="prog-dot" style="background:var(--green)"></div>
+        <div class="prog-content">
+          <div class="prog-title">Show &amp; Ask + Networking <span class="zh">展示提问 + 交流</span></div>
+          <div class="prog-detail">Lobby &amp; New York Room · Jules Gomes (ConnectLah) · Samsul Jahith (Neam Database) · Alexander Kichev (Crux) · 3 spots pending <span class="zh">大堂与纽约室 · 3个待定名额</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ═══ SLIDE 1 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s0">
   <div class="orb o1"></div><div class="orb o2"></div>
-  <div class="pnum">01 / 05</div>
+  <div class="pnum">02 / 06</div>
   <div class="inner">
     <div class="fi d1">
       <div class="badge green">What's Next · Episode 1 · March 27 <span class="zh">第一期 · 3月27日</span></div>
@@ -263,7 +338,7 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 <!-- ═══ SLIDE 2 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s1">
   <div class="orb o2"></div><div class="orb o3"></div>
-  <div class="pnum">02 / 05</div>
+  <div class="pnum">03 / 06</div>
   <div class="inner">
     <div class="fi d1">
       <div class="badge">Demo Lineup · 5 Products <span class="zh">演示阵容 · 5款产品</span></div>
@@ -349,7 +424,7 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 <!-- ═══ SLIDE 3 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s2">
   <div class="orb o1" style="top:auto;bottom:-150px;right:auto;left:-150px"></div><div class="orb o3"></div>
-  <div class="pnum">03 / 05</div>
+  <div class="pnum">04 / 06</div>
   <div class="inner">
     <div class="fi d1">
       <div class="badge gold">57 Registered · Curated Room <span class="zh">57位注册者 · 精选阵容</span></div>
@@ -386,7 +461,7 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 <!-- ═══ SLIDE 4 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s3">
   <div class="orb o2" style="top:-100px;right:-100px;bottom:auto;left:auto"></div><div class="orb o3"></div>
-  <div class="pnum">04 / 05</div>
+  <div class="pnum">05 / 06</div>
   <div class="inner">
     <div class="fi d1">
       <div class="badge">Goal 2 · n8n Automation · Live <span class="zh">目标2 · n8n自动化 · 已上线</span></div>
@@ -438,7 +513,7 @@ h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing
 <!-- ═══ SLIDE 5 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s4">
   <div class="orb o1" style="bottom:-100px;top:auto;left:-100px;right:auto"></div><div class="orb o3"></div>
-  <div class="pnum">05 / 05</div>
+  <div class="pnum">06 / 06</div>
   <div class="inner">
     <div class="fi d1" style="margin-bottom:20px">
       <div class="badge">Week 12 · Goal Audit <span class="zh">第12周 · 目标审计</span></div>
