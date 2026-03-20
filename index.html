@@ -8,7 +8,7 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#07070d;--text:#f0f0f5;--muted:rgba(240,240,245,.48);
+  --bg:#07070d;--text:#f0f0f5;--muted:rgba(240,240,245,.46);--muted2:rgba(240,240,245,.28);
   --accent:#7c5cfc;--green:#22c55e;--gold:#e8c36a;--blue:#4f8fff;--purple:#a855f7;--rose:#fb7185;
   --glass:rgba(255,255,255,.04);--gb:rgba(255,255,255,.08);
   --g1:linear-gradient(135deg,#7c5cfc,#4f8fff);
@@ -27,130 +27,126 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg);color:va
 .o2{width:500px;height:500px;background:#4f8fff;bottom:-150px;left:-150px}
 .o3{width:400px;height:400px;background:#a855f7;top:40%;left:40%;transform:translate(-50%,-50%)}
 
-/* TYPE */
-h1{font-size:clamp(32px,4.5vw,58px);font-weight:800;line-height:1.05;letter-spacing:-2px;background:linear-gradient(135deg,#fff,rgba(255,255,255,.65));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
-h2{font-size:clamp(26px,3.5vw,46px);font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:12px}
-h3{font-size:clamp(14px,1.5vw,18px);font-weight:700;line-height:1.3;margin-bottom:6px}
-.sub{font-size:clamp(14px,1.6vw,17px);color:var(--muted);line-height:1.7;max-width:640px}
-.divider{width:52px;height:2px;background:var(--g1);margin:20px 0;border-radius:2px}
-.eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+/* BILINGUAL SYSTEM */
+.en{display:block}
+.zh{display:block;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);font-weight:400;margin-top:3px}
+h2 .zh{font-size:clamp(13px,1.4vw,18px);letter-spacing:0;line-height:1.4;font-weight:400;margin-top:5px}
+h2{font-size:clamp(22px,3vw,42px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:12px;color:var(--text)}
+.sub .zh{font-size:clamp(11px,1.1vw,13px);margin-top:4px}
+.sub{font-size:clamp(13px,1.4vw,16px);color:var(--muted);line-height:1.7;max-width:700px}
 
 /* BADGE */
-.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--gb);background:var(--glass);color:var(--accent);margin-bottom:16px}
-.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(124,92,252,.5)}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;border:1px solid var(--gb);background:var(--glass);color:var(--accent);margin-bottom:14px}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(124,92,252,.5);flex-shrink:0}
 .badge.green{color:var(--green)}.badge.green::before{background:var(--green);box-shadow:0 0 8px rgba(34,197,94,.4)}
 .badge.gold{color:var(--gold)}.badge.gold::before{background:var(--gold);box-shadow:0 0 8px rgba(232,195,106,.4)}
+.badge .zh{display:inline;font-size:10px;margin-top:0;font-family:'Noto Sans SC',sans-serif;color:inherit;opacity:.7;font-weight:400;margin-left:4px;letter-spacing:0}
 
-/* CARDS */
-.card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:20px 22px}
-.card-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-
-/* GRID */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}}
+/* EYEBROW */
+.eyebrow{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.eyebrow .zh{font-size:9px;font-family:'Noto Sans SC',sans-serif;letter-spacing:0;font-weight:400;display:inline;margin-left:4px;opacity:.6}
 
 /* PNUM */
-.pnum{position:absolute;bottom:24px;right:32px;font-size:10px;color:rgba(255,255,255,.16);letter-spacing:1px;z-index:3}
+.pnum{position:absolute;bottom:24px;right:32px;font-size:10px;color:rgba(255,255,255,.14);letter-spacing:1px;z-index:3}
 
 /* NAV DOTS */
 .nav-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px;z-index:100}
 .nd{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.14);cursor:pointer;border:none;padding:0;transition:all .3s}
 .nd.active{background:var(--accent);box-shadow:0 0 8px rgba(124,92,252,.5);transform:scale(1.4)}
 
-/* LANG TOGGLE */
-.lang{position:fixed;top:20px;right:24px;z-index:200;display:flex;background:var(--glass);border:1px solid var(--gb);border-radius:100px;backdrop-filter:blur(20px);padding:3px}
-.lb{padding:5px 13px;border-radius:100px;font-size:10px;font-weight:700;color:var(--muted);border:none;background:transparent;cursor:pointer;transition:all .2s;letter-spacing:.5px}
-.lb.active{background:var(--accent);color:#fff}
-
-/* FADE */
-.fi{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+/* FADE IN */
+.fi{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .fi.visible{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.38s}.d5{transition-delay:.48s}
+.d1{transition-delay:.07s}.d2{transition-delay:.16s}.d3{transition-delay:.26s}.d4{transition-delay:.36s}.d5{transition-delay:.46s}
 
 /* ── SLIDE 1 ── */
-.s1-wrap{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.s1-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;margin-top:16px}
 @media(max-width:900px){.s1-wrap{grid-template-columns:1fr}}
 .luma-img{width:100%;border-radius:16px;border:1px solid var(--gb);display:block}
 .speakers-section{display:flex;flex-direction:column;gap:14px}
-.spk-group-label{font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.spk-card{display:flex;align-items:center;gap:12px;background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:12px 16px}
-.spk-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#4f8fff);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0;font-family:'Inter',sans-serif}
+.spk-group-label{font-size:9px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.spk-group-label .zh{font-size:9px;display:inline;letter-spacing:0;font-family:'Noto Sans SC',sans-serif;margin-left:4px;opacity:.6;font-weight:400}
+.spk-card{display:flex;align-items:center;gap:12px;background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:10px 14px}
+.spk-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#4f8fff);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0}
 .spk-name{font-size:13px;font-weight:700;color:var(--text)}
-.spk-role{font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px}
-.demo-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:11px;font-weight:600;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--accent)}
-.pill .dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.spk-role{font-size:10px;color:var(--muted);line-height:1.4;margin-top:1px}
+.spk-role .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;display:inline;margin-left:3px;opacity:.65;font-weight:400}
+.demo-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:100px;font-size:10.5px;font-weight:600;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--accent)}
+.pill .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
 
 /* ── SLIDE 2 ── */
-.demo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}
+.demo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:20px}
 @media(max-width:1100px){.demo-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.demo-grid{grid-template-columns:1fr 1fr}}
 .demo-card{background:var(--glass);border:1px solid var(--gb);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.demo-img{width:100%;height:160px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--gb)}
-.demo-chrono{width:100%;height:160px;background:linear-gradient(135deg,#0f0f1a,#1a1030);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid var(--gb)}
-.demo-body{padding:14px}
-.demo-speaker{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
-.demo-product{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px}
-.demo-desc{font-size:11px;color:var(--muted);line-height:1.55}
+.demo-img{width:100%;height:150px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--gb)}
+.demo-chrono{width:100%;height:150px;background:linear-gradient(135deg,#0f0f1a,#1a1030);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;border-bottom:1px solid var(--gb)}
+.demo-body{padding:12px}
+.demo-speaker{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.demo-product{font-size:12px;font-weight:700;color:var(--text);margin-bottom:5px}
+.demo-desc .en{font-size:10.5px;color:var(--muted);line-height:1.5}
+.demo-desc .zh{font-size:10px;color:var(--muted2);font-family:'Noto Sans SC',sans-serif;line-height:1.5;margin-top:4px}
 
 /* ── SLIDE 3 ── */
-.attendee-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:24px}
+.attendee-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:20px}
 @media(max-width:1000px){.attendee-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.attendee-grid{grid-template-columns:1fr 1fr}}
-.att-card{background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:12px 14px}
-.att-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:3px}
-.att-role{font-size:10px;color:var(--muted);line-height:1.4}
+.att-card{background:var(--glass);border:1px solid var(--gb);border-radius:12px;padding:11px 13px}
+.att-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px}
+.att-role{font-size:10px;color:var(--muted);line-height:1.3}
+.att-role .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;display:inline;margin-left:3px;opacity:.6;font-weight:400}
 .att-co{font-size:10px;font-weight:600;color:var(--accent);margin-top:2px}
 
 /* ── SLIDE 4 ── */
-.n8n-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;margin-top:20px}
+.n8n-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;margin-top:16px}
 @media(max-width:900px){.n8n-wrap{grid-template-columns:1fr}}
 .flow-diagram{display:flex;flex-direction:column;gap:0}
 .flow-step{display:flex;align-items:flex-start;gap:14px}
-.flow-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.flow-content{padding:0 0 24px 0;border-left:2px solid rgba(255,255,255,.07);padding-left:18px;margin-left:-29px;flex:1;padding-top:2px}
+.flow-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.flow-content{padding:0 0 20px 0;border-left:2px solid rgba(255,255,255,.07);padding-left:16px;margin-left:-29px;flex:1;padding-top:2px}
 .flow-step:last-child .flow-content{border-left:2px solid transparent;padding-bottom:0}
-.flow-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px}
-.flow-sub{font-size:11px;color:var(--muted);line-height:1.5}
-.flow-arrow{font-size:18px;margin-left:14px;color:var(--muted);margin-top:10px;flex-shrink:0}
-.n8n-meta{display:flex;flex-direction:column;gap:12px}
-.meta-card{background:var(--glass);border:1px solid var(--gb);border-radius:14px;padding:16px 18px}
-.meta-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
-.meta-label.green{color:var(--green)}
-.meta-label.gold{color:var(--gold)}
-.meta-label.rose{color:var(--rose)}
-.meta-label.blue{color:var(--blue)}
-.meta-item{font-size:12px;color:var(--muted);line-height:1.6;display:flex;gap:8px;align-items:flex-start}
-.meta-item::before{content:'→';color:var(--accent);flex-shrink:0}
-.time-saved{display:flex;align-items:baseline;gap:6px;margin-top:8px}
-.time-num{font-size:36px;font-weight:900;color:var(--green);line-height:1}
-.time-label{font-size:12px;color:var(--muted);line-height:1.4}
+.flow-title .en{font-size:13px;font-weight:700;color:var(--text)}
+.flow-title .zh{font-size:11px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);margin-top:1px}
+.flow-sub .en{font-size:11px;color:var(--muted);line-height:1.5;margin-top:3px}
+.flow-sub .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);line-height:1.5;margin-top:3px}
+.n8n-meta{display:flex;flex-direction:column;gap:10px}
+.meta-card{background:var(--glass);border:1px solid var(--gb);border-radius:14px;padding:14px 16px}
+.meta-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.meta-label .zh{font-size:10px;letter-spacing:0;font-family:'Noto Sans SC',sans-serif;display:inline;font-weight:400;opacity:.7;text-transform:none}
+.meta-label.green{color:var(--green)}.meta-label.gold{color:var(--gold)}.meta-label.rose{color:var(--rose)}
+.meta-item .en{font-size:11px;color:var(--muted);line-height:1.5;display:flex;gap:7px;align-items:flex-start}
+.meta-item .en::before{content:'→';color:var(--accent);flex-shrink:0}
+.meta-item .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);padding-left:16px;margin-top:2px;line-height:1.4}
+.time-num{font-size:32px;font-weight:900;color:var(--green);line-height:1}
+.time-label .en{font-size:11px;color:var(--muted)}
+.time-label .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);margin-top:1px}
 
 /* ── SLIDE 5 ── */
-.audit-header{display:flex;align-items:center;gap:20px;margin-bottom:24px}
-.audit-score{display:flex;align-items:baseline;gap:4px}
-.audit-n{font-size:56px;font-weight:900;line-height:1;color:var(--green)}
-.audit-d{font-size:26px;font-weight:700;color:rgba(255,255,255,.2)}
-.goal-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.audit-n{font-size:52px;font-weight:900;line-height:1;color:var(--green)}
+.audit-d{font-size:24px;font-weight:700;color:rgba(255,255,255,.2)}
+.goal-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media(max-width:900px){.goal-compare{grid-template-columns:1fr}}
-.gc-card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.gc-card{background:var(--glass);border:1px solid var(--gb);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
 .gc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
 .gc-g1::before{background:linear-gradient(90deg,var(--purple),var(--blue))}
 .gc-g2::before{background:linear-gradient(90deg,var(--green),#4f8fff)}
 .gc-g3::before{background:linear-gradient(90deg,var(--gold),var(--rose))}
-.gc-num{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
-.gc-title{font-size:14px;font-weight:700;color:var(--text);line-height:1.3}
-.gc-section{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
-.gc-section.green{color:var(--green)}
-.gc-section.rose{color:var(--rose)}
-.gc-section.gold{color:var(--gold)}
-.gc-item{font-size:11.5px;color:var(--muted);line-height:1.5;display:flex;gap:7px;align-items:flex-start;margin-bottom:4px}
-.gc-item .tick{flex-shrink:0;color:var(--green)}
-.gc-item .cross{flex-shrink:0;color:var(--rose)}
-.gc-item .warn{flex-shrink:0;color:var(--gold)}
-.gc-verdict{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:10px;font-weight:700;margin-top:auto;align-self:flex-start}
+.gc-num .en{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.gc-num .zh{font-size:9px;font-family:'Noto Sans SC',sans-serif;display:inline;margin-left:4px;opacity:.55}
+.gc-title .en{font-size:13px;font-weight:700;color:var(--text);line-height:1.3}
+.gc-title .zh{font-size:11px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);line-height:1.4;margin-top:3px}
+.gc-section .en{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.gc-section .zh{font-size:9px;font-family:'Noto Sans SC',sans-serif;display:inline;margin-left:4px;font-weight:400;opacity:.7;text-transform:none;letter-spacing:0}
+.gc-section.green .en{color:var(--green)}.gc-section.rose .en{color:var(--rose)}.gc-section.gold .en{color:var(--gold)}
+.gc-section.green .zh{color:var(--green)}.gc-section.rose .zh{color:var(--rose)}.gc-section.gold .zh{color:var(--gold)}
+.gc-item{font-size:11px;color:var(--muted);line-height:1.4;display:flex;gap:6px;align-items:flex-start;margin-bottom:3px}
+.gc-item .tick{flex-shrink:0;color:var(--green);font-size:11px}
+.gc-item .cross{flex-shrink:0;color:var(--rose);font-size:11px}
+.gc-item .warn{flex-shrink:0;color:var(--gold);font-size:11px}
+.gc-item .txt .zh{font-size:10px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);display:block;margin-top:1px;line-height:1.3}
+.gc-verdict{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:100px;font-size:9px;font-weight:700;margin-top:auto;align-self:flex-start}
+.gc-verdict .zh{font-size:9px;font-family:'Noto Sans SC',sans-serif;font-weight:400;opacity:.8;margin-left:2px}
 .vg{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:var(--green)}
 .vw{background:rgba(232,195,106,.1);border:1px solid rgba(232,195,106,.2);color:var(--gold)}
 .vs{background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--accent)}
@@ -158,62 +154,55 @@ h3{font-size:clamp(14px,1.5vw,18px);font-weight:700;line-height:1.3;margin-botto
 </head>
 <body>
 
-<!-- Language Toggle -->
-<div class="lang">
-  <button class="lb active" onclick="setLang('en')">EN</button>
-  <button class="lb" onclick="setLang('zh')">中文</button>
-</div>
-
 <!-- Nav Dots -->
 <div class="nav-dots" id="navDots"></div>
 
-<!-- ═══ SLIDE 1 — WHAT'S NEXT: EVENT OVERVIEW ══════════════════════════ -->
+<!-- ═══ SLIDE 1 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s0">
   <div class="orb o1"></div><div class="orb o2"></div>
   <div class="pnum">01 / 05</div>
   <div class="inner">
     <div class="fi d1">
-      <div class="badge green" data-i18n="b1" data-en="What's Next · Episode 1 · March 27" data-zh="What's Next · 第一期 · 3月27日">What's Next · Episode 1 · March 27</div>
+      <div class="badge green">What's Next · Episode 1 · March 27 <span class="zh">第一期 · 3月27日</span></div>
     </div>
-    <h2 class="fi d1" data-i18n="h1" data-en="Event Overview &amp; Speakers." data-zh="活动概览与演讲嘉宾。">Event Overview &amp; Speakers.</h2>
+    <h2 class="fi d1">
+      <span class="en">Event Overview &amp; Speakers.</span>
+      <span class="zh">活动概览与演讲嘉宾。</span>
+    </h2>
     <div class="s1-wrap fi d2">
-      <!-- Lu.ma Screenshot -->
       <div>
-        <div class="eyebrow" style="margin-bottom:10px" data-i18n="luma_label" data-en="Live on Lu.ma" data-zh="Lu.ma 实时数据">Live on Lu.ma</div>
+        <div class="eyebrow">Live on Lu.ma <span class="zh">实时数据</span></div>
         <img src="img/luma.png" class="luma-img" alt="Lu.ma event dashboard">
       </div>
-
-      <!-- Speakers -->
       <div class="speakers-section">
         <div>
-          <div class="spk-group-label" data-i18n="open_spk" data-en="Opening Speakers" data-zh="开场演讲嘉宾">Opening Speakers</div>
-          <div style="display:flex;flex-direction:column;gap:9px">
+          <div class="spk-group-label">Opening Speakers <span class="zh">开场演讲嘉宾</span></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
             <div class="spk-card">
               <div class="spk-avatar">LF</div>
               <div>
                 <div class="spk-name">Li Fan</div>
-                <div class="spk-role" data-i18n="spk1r" data-en="Founder, Whale Art Museum" data-zh="创始人，鲸鱼艺术馆">Founder, Whale Art Museum</div>
+                <div class="spk-role">Founder, Whale Art Museum <span class="zh">创始人，鲸鱼艺术馆</span></div>
               </div>
             </div>
             <div class="spk-card">
               <div class="spk-avatar" style="background:linear-gradient(135deg,#22c55e,#4f8fff)">TN</div>
               <div>
                 <div class="spk-name">Terrence Ngu</div>
-                <div class="spk-role" data-i18n="spk2r" data-en="Founder, Hashmeta" data-zh="创始人，Hashmeta">Founder, Hashmeta</div>
+                <div class="spk-role">Founder, Hashmeta <span class="zh">创始人，Hashmeta</span></div>
               </div>
             </div>
             <div class="spk-card">
               <div class="spk-avatar" style="background:linear-gradient(135deg,#e8c36a,#fb7185)">DJ</div>
               <div>
                 <div class="spk-name">Danielle Jiang</div>
-                <div class="spk-role" data-i18n="spk3r" data-en="Deputy Director, Financial Infrastructure &amp; AI Office, MAS" data-zh="副司长，金融基础设施与AI办公室，MAS">Deputy Director, Financial Infrastructure &amp; AI Office, MAS</div>
+                <div class="spk-role">Deputy Director, Financial Infrastructure &amp; AI Office, MAS <span class="zh">副司长，金融基础设施与AI办公室，MAS</span></div>
               </div>
             </div>
           </div>
         </div>
-
         <div style="margin-top:8px">
-          <div class="spk-group-label" data-i18n="demo_spk" data-en="Confirmed Demo Speakers" data-zh="已确认演示嘉宾">Confirmed Demo Speakers</div>
+          <div class="spk-group-label">Confirmed Demo Speakers <span class="zh">已确认演示嘉宾</span></div>
           <div class="demo-pills">
             <span class="pill"><span class="dot"></span>ChronoAI (Wendy + Calvin)</span>
             <span class="pill" style="background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.2);color:var(--green)"><span class="dot" style="background:var(--green)"></span>Andrew Ma · Soulsoul</span>
@@ -227,187 +216,252 @@ h3{font-size:clamp(14px,1.5vw,18px);font-weight:700;line-height:1.3;margin-botto
   </div>
 </section>
 
-<!-- ═══ SLIDE 2 — DEMO PRODUCTS ══════════════════════════════════════════ -->
+<!-- ═══ SLIDE 2 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s1">
   <div class="orb o2"></div><div class="orb o3"></div>
   <div class="pnum">02 / 05</div>
   <div class="inner">
     <div class="fi d1">
-      <div class="badge" data-i18n="b2" data-en="Demo Lineup · 5 Products" data-zh="演示阵容 · 5款产品">Demo Lineup · 5 Products</div>
+      <div class="badge">Demo Lineup · 5 Products <span class="zh">演示阵容 · 5款产品</span></div>
     </div>
-    <h2 class="fi d1" data-i18n="h2" data-en="What's being demoed." data-zh="即将演示的产品。">What's being demoed.</h2>
-    <p class="sub fi d2" data-i18n="s2" data-en="Real AI products — built, shipped, and walked through live. No slides. No theory." data-zh="真实AI产品——构建、上线，现场演示。无幻灯片，无理论。">Real AI products — built, shipped, and walked through live. No slides. No theory.</p>
+    <h2 class="fi d1">
+      <span class="en">What's being demoed.</span>
+      <span class="zh">即将演示的产品。</span>
+    </h2>
+    <p class="sub fi d2">
+      <span class="en">Real AI products — built, shipped, and walked through live. No slides. No theory.</span>
+      <span class="zh">真实AI产品——构建、上线，现场演示。无幻灯片，无理论。</span>
+    </p>
     <div class="demo-grid fi d3">
-      <!-- ChronoAI -->
       <div class="demo-card">
         <div class="demo-chrono">
-          <div style="font-size:28px">⚡</div>
-          <div style="font-size:13px;font-weight:800;color:var(--text);letter-spacing:-0.5px">ChronoAI</div>
+          <div style="font-size:26px">⚡</div>
+          <div style="font-size:12px;font-weight:800;color:var(--text)">ChronoAI</div>
           <div style="font-size:10px;color:var(--muted)">SoulGarden + RiteSet</div>
         </div>
         <div class="demo-body">
           <div class="demo-speaker">Wendy + Calvin</div>
-          <div class="demo-product" data-i18n="dp0" data-en="SoulGarden &amp; RiteSet" data-zh="SoulGarden 与 RiteSet">SoulGarden &amp; RiteSet</div>
-          <div class="demo-desc" data-i18n="dd0" data-en="From idea to shipped product in 3 days — the full ChronoAI technical workflow, design flow, and GTM process. Live." data-zh="从创意到上线产品仅需3天——完整的ChronoAI技术工作流程、设计流程和GTM过程，全程直播。">From idea to shipped product in 3 days — the full ChronoAI technical workflow, design flow, and GTM process. Live.</div>
+          <div class="demo-product">SoulGarden &amp; RiteSet</div>
+          <div class="demo-desc">
+            <span class="en">From idea to shipped product in 3 days — full ChronoAI workflow, design, and GTM. Live.</span>
+            <span class="zh">从创意到上线产品仅需3天——完整工作流程、设计和GTM过程，全程直播。</span>
+          </div>
         </div>
       </div>
-      <!-- Soulsoul -->
       <div class="demo-card">
         <img src="img/soulsoul.png" class="demo-img" alt="Soulsoul">
         <div class="demo-body">
           <div class="demo-speaker">Andrew Ma</div>
           <div class="demo-product">Soulsoul</div>
-          <div class="demo-desc" data-i18n="dd1" data-en="Interactive reading app where children talk to story characters, turning every book into an adventure." data-zh="互动阅读应用，让孩子与故事角色对话，让每本书都变成一次冒险。">Interactive reading app where children talk to story characters, turning every book into an adventure.</div>
+          <div class="demo-desc">
+            <span class="en">Interactive reading app where children talk to story characters.</span>
+            <span class="zh">让孩子与故事角色对话的互动阅读应用。</span>
+          </div>
         </div>
       </div>
-      <!-- Ketchup AI -->
       <div class="demo-card">
         <img src="img/ketchup.png" class="demo-img" alt="Ketchup AI">
         <div class="demo-body">
           <div class="demo-speaker">Elva Qi</div>
           <div class="demo-product">Ketchup AI</div>
-          <div class="demo-desc" data-i18n="dd2" data-en="Turns sales conversations into actionable intelligence — helping relationship-driven sales professionals close more." data-zh="将销售对话转化为可执行的情报，帮助以关系为导向的销售人员达成更多交易。">Turns sales conversations into actionable intelligence — helping relationship-driven sales professionals close more.</div>
+          <div class="demo-desc">
+            <span class="en">Turns sales conversations into actionable intelligence for relationship-driven teams.</span>
+            <span class="zh">将销售对话转化为可执行情报，助力以关系为导向的销售团队。</span>
+          </div>
         </div>
       </div>
-      <!-- Magicorium -->
       <div class="demo-card">
         <img src="img/magicorium.png" class="demo-img" alt="Magicorium">
         <div class="demo-body">
           <div class="demo-speaker">Alexander Kichev</div>
           <div class="demo-product">Magicorium</div>
-          <div class="demo-desc" data-i18n="dd3" data-en="Open hub for AI agent personas — browse, build, and deploy character identities your agents adopt instantly." data-zh="AI代理人格开放平台——浏览、构建并部署可供代理即时采用的角色身份。">Open hub for AI agent personas — browse, build, and deploy character identities your agents adopt instantly.</div>
+          <div class="demo-desc">
+            <span class="en">Open hub for AI agent personas — browse, build, and deploy instantly.</span>
+            <span class="zh">AI代理人格开放平台——浏览、构建并即时部署角色身份。</span>
+          </div>
         </div>
       </div>
-      <!-- inflect.ai -->
       <div class="demo-card">
         <img src="img/inflect.png" class="demo-img" alt="inflect.ai">
         <div class="demo-body">
           <div class="demo-speaker">Jonathan Liew</div>
           <div class="demo-product">inflect.ai</div>
-          <div class="demo-desc" data-i18n="dd4" data-en="Generative Engine Optimization — making content machine-readable so AI engines cite you, not your competitors." data-zh="生成式引擎优化——让内容对机器可读，使AI引擎引用您而非竞争对手。">Generative Engine Optimization — making content machine-readable so AI engines cite you, not your competitors.</div>
+          <div class="demo-desc">
+            <span class="en">Generative Engine Optimization — making content AI-citable.</span>
+            <span class="zh">生成式引擎优化——让内容被AI引擎引用。</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ SLIDE 3 — NOTABLE ATTENDEES ═══════════════════════════════════════ -->
+<!-- ═══ SLIDE 3 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s2">
   <div class="orb o1" style="top:auto;bottom:-150px;right:auto;left:-150px"></div><div class="orb o3"></div>
   <div class="pnum">03 / 05</div>
   <div class="inner">
     <div class="fi d1">
-      <div class="badge gold" data-i18n="b3" data-en="55 Registered · Curated Room" data-zh="55位注册者 · 精选阵容">55 Registered · Curated Room</div>
+      <div class="badge gold">55 Registered · Curated Room <span class="zh">55位注册者 · 精选阵容</span></div>
     </div>
-    <h2 class="fi d1" data-i18n="h3" data-en="Who's in the room." data-zh="谁在这个房间里。">Who's in the room.</h2>
-    <p class="sub fi d2" data-i18n="s3" data-en="A cross-section of founders, investors, operators, and industry leaders — exactly the room we designed for." data-zh="创始人、投资者、运营者和行业领袖的代表——这正是我们为之设计的阵容。">A cross-section of founders, investors, operators, and industry leaders — exactly the room we designed for.</p>
+    <h2 class="fi d1">
+      <span class="en">Who's in the room.</span>
+      <span class="zh">谁在这个房间里。</span>
+    </h2>
+    <p class="sub fi d2">
+      <span class="en">Founders, investors, operators, and industry leaders — exactly the room we designed for.</span>
+      <span class="zh">创始人、投资者、运营者和行业领袖——这正是我们为之设计的阵容。</span>
+    </p>
     <div class="attendee-grid fi d3">
-      <div class="att-card"><div class="att-name">Aloysius</div><div class="att-role" data-i18n="a1r" data-en="Managing Director" data-zh="董事总经理">Managing Director</div><div class="att-co">Aegis Wallet</div></div>
-      <div class="att-card"><div class="att-name">Jean-Luc</div><div class="att-role" data-i18n="a2r" data-en="CEO APAC" data-zh="亚太区首席执行官">CEO APAC</div><div class="att-co">Solution BI</div></div>
-      <div class="att-card"><div class="att-name">Theo Palios</div><div class="att-role" data-i18n="a3r" data-en="CEO" data-zh="首席执行官">CEO</div><div class="att-co">Unicorn Labs</div></div>
-      <div class="att-card"><div class="att-name">Yong Quan</div><div class="att-role" data-i18n="a4r" data-en="Platform" data-zh="平台">Platform</div><div class="att-co">Menlo Research</div></div>
-      <div class="att-card"><div class="att-name">Christine</div><div class="att-role" data-i18n="a5r" data-en="Partner" data-zh="合伙人">Partner</div><div class="att-co">Silverbrook Advisory</div></div>
-      <div class="att-card"><div class="att-name">Julie Schiller</div><div class="att-role" data-i18n="a6r" data-en="CEO" data-zh="首席执行官">CEO</div><div class="att-co">Climate UX</div></div>
-      <div class="att-card"><div class="att-name">Mira Nadarajah</div><div class="att-role" data-i18n="a7r" data-en="Product" data-zh="产品">Product</div><div class="att-co">Podium</div></div>
-      <div class="att-card"><div class="att-name">Jay</div><div class="att-role" data-i18n="a8r" data-en="Founder" data-zh="创始人">Founder</div><div class="att-co">Insight Genesis</div></div>
-      <div class="att-card"><div class="att-name">Catherine</div><div class="att-role" data-i18n="a9r" data-en="Manager" data-zh="经理">Manager</div><div class="att-co">National Arts Council</div></div>
-      <div class="att-card"><div class="att-name">Onno Kampman</div><div class="att-role" data-i18n="a10r" data-en="Head of AI" data-zh="AI负责人">Head of AI</div><div class="att-co">mindline.sg</div></div>
-      <div class="att-card"><div class="att-name">Franck Boullier</div><div class="att-role" data-i18n="a11r" data-en="Chief Digital Officer" data-zh="首席数字官">Chief Digital Officer</div><div class="att-co">UNIQGIFT</div></div>
-      <div class="att-card"><div class="att-name">Aditi Toashniwal</div><div class="att-role" data-i18n="a12r" data-en="Engineering Leader" data-zh="工程负责人">Engineering Leader</div><div class="att-co">TikTok</div></div>
-      <div class="att-card"><div class="att-name">Alan Chang</div><div class="att-role" data-i18n="a13r" data-en="Partnerships" data-zh="合作伙伴">Partnerships</div><div class="att-co">SGInnovate</div></div>
-      <div class="att-card"><div class="att-name">Paul de Misouard</div><div class="att-role" data-i18n="a14r" data-en="CEO" data-zh="首席执行官">CEO</div><div class="att-co">SP3D</div></div>
-      <div class="att-card"><div class="att-name">Lionel Sim</div><div class="att-role" data-i18n="a15r" data-en="Organiser" data-zh="组织者">Organiser</div><div class="att-co">OpenClaw Events</div></div>
-      <div class="att-card"><div class="att-name">Alex Sibois</div><div class="att-role" data-i18n="a16r" data-en="VP Growth" data-zh="增长副总裁">VP Growth</div><div class="att-co">hivenet</div></div>
+      <div class="att-card"><div class="att-name">Aloysius</div><div class="att-role">Managing Director <span class="zh">董事总经理</span></div><div class="att-co">Aegis Wallet</div></div>
+      <div class="att-card"><div class="att-name">Jean-Luc</div><div class="att-role">CEO APAC <span class="zh">亚太区首席执行官</span></div><div class="att-co">Solution BI</div></div>
+      <div class="att-card"><div class="att-name">Theo Palios</div><div class="att-role">CEO <span class="zh">首席执行官</span></div><div class="att-co">Unicorn Labs</div></div>
+      <div class="att-card"><div class="att-name">Yong Quan</div><div class="att-role">Platform <span class="zh">平台</span></div><div class="att-co">Menlo Research</div></div>
+      <div class="att-card"><div class="att-name">Christine</div><div class="att-role">Partner <span class="zh">合伙人</span></div><div class="att-co">Silverbrook Advisory</div></div>
+      <div class="att-card"><div class="att-name">Julie Schiller</div><div class="att-role">CEO <span class="zh">首席执行官</span></div><div class="att-co">Climate UX</div></div>
+      <div class="att-card"><div class="att-name">Mira Nadarajah</div><div class="att-role">Product <span class="zh">产品</span></div><div class="att-co">Podium</div></div>
+      <div class="att-card"><div class="att-name">Jay</div><div class="att-role">Founder <span class="zh">创始人</span></div><div class="att-co">Insight Genesis</div></div>
+      <div class="att-card"><div class="att-name">Catherine</div><div class="att-role">Manager <span class="zh">经理</span></div><div class="att-co">National Arts Council</div></div>
+      <div class="att-card"><div class="att-name">Onno Kampman</div><div class="att-role">Head of AI <span class="zh">AI负责人</span></div><div class="att-co">mindline.sg</div></div>
+      <div class="att-card"><div class="att-name">Franck Boullier</div><div class="att-role">Chief Digital Officer <span class="zh">首席数字官</span></div><div class="att-co">UNIQGIFT</div></div>
+      <div class="att-card"><div class="att-name">Aditi Toashniwal</div><div class="att-role">Engineering Leader <span class="zh">工程负责人</span></div><div class="att-co">TikTok</div></div>
+      <div class="att-card"><div class="att-name">Alan Chang</div><div class="att-role">Partnerships <span class="zh">合作伙伴</span></div><div class="att-co">SGInnovate</div></div>
+      <div class="att-card"><div class="att-name">Paul de Misouard</div><div class="att-role">CEO <span class="zh">首席执行官</span></div><div class="att-co">SP3D</div></div>
+      <div class="att-card"><div class="att-name">Lionel Sim</div><div class="att-role">Organiser <span class="zh">组织者</span></div><div class="att-co">OpenClaw Events</div></div>
+      <div class="att-card"><div class="att-name">Alex Sibois</div><div class="att-role">VP Growth <span class="zh">增长副总裁</span></div><div class="att-co">hivenet</div></div>
     </div>
   </div>
 </section>
 
-<!-- ═══ SLIDE 4 — N8N AUTOMATION ══════════════════════════════════════════ -->
+<!-- ═══ SLIDE 4 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s3">
   <div class="orb o2" style="top:-100px;right:-100px;bottom:auto;left:auto"></div><div class="orb o3"></div>
   <div class="pnum">04 / 05</div>
   <div class="inner">
     <div class="fi d1">
-      <div class="badge" data-i18n="b4" data-en="Goal 2 · n8n Automation · Live" data-zh="目标2 · n8n自动化 · 已上线">Goal 2 · n8n Automation · Live</div>
+      <div class="badge">Goal 2 · n8n Automation · Live <span class="zh">目标2 · n8n自动化 · 已上线</span></div>
     </div>
-    <h2 class="fi d1" data-i18n="h4" data-en="Automated event intelligence.<br>1–2 hours saved daily." data-zh="自动化活动情报。<br>每日节省1–2小时。">Automated event intelligence.<br>1–2 hours saved daily.</h2>
-
+    <h2 class="fi d1">
+      <span class="en">Automated event intelligence. 1–2 hours saved daily.</span>
+      <span class="zh">自动化活动情报。每日节省1–2小时。</span>
+    </h2>
     <div class="n8n-wrap fi d2">
-      <!-- Flow Diagram -->
       <div>
-        <div class="eyebrow" style="margin-bottom:16px" data-i18n="flow_label" data-en="Automation Flow" data-zh="自动化流程">Automation Flow</div>
+        <div class="eyebrow">Automation Flow <span class="zh">自动化流程</span></div>
         <div class="flow-diagram">
           <div class="flow-step">
             <div class="flow-icon" style="background:rgba(124,92,252,.15);border:1px solid rgba(124,92,252,.3)">🕷️</div>
             <div style="width:14px;flex-shrink:0"></div>
             <div class="flow-content">
-              <div class="flow-title" data-i18n="f1t" data-en="Apify Lu.ma Scraper" data-zh="Apify Lu.ma 爬虫">Apify Lu.ma Scraper</div>
-              <div class="flow-sub" data-i18n="f1s" data-en="Scrapes Lu.ma daily for event listings — organiser details, speaker info, LinkedIn links where available" data-zh="每日抓取Lu.ma活动列表——组织者详情、演讲者信息、LinkedIn链接">Scrapes Lu.ma daily for event listings — organiser details, speaker info, LinkedIn links where available</div>
+              <div class="flow-title">
+                <span class="en">Apify Lu.ma Scraper</span>
+                <span class="zh">Apify Lu.ma 爬虫</span>
+              </div>
+              <div class="flow-sub">
+                <span class="en">Scrapes Lu.ma daily for AI event listings — organiser details, speaker info, LinkedIn links</span>
+                <span class="zh">每日抓取Lu.ma活动列表——组织者详情、演讲者信息、LinkedIn链接</span>
+              </div>
             </div>
           </div>
-          <div style="margin-left:22px;padding-left:18px;border-left:2px solid rgba(255,255,255,.07);height:24px"></div>
+          <div style="margin-left:21px;padding-left:16px;border-left:2px solid rgba(255,255,255,.07);height:20px"></div>
           <div class="flow-step">
             <div class="flow-icon" style="background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25)">🔍</div>
             <div style="width:14px;flex-shrink:0"></div>
             <div class="flow-content">
-              <div class="flow-title" data-i18n="f2t" data-en="Filter: AI Events Only" data-zh="筛选：仅AI活动">Filter: AI Events Only</div>
-              <div class="flow-sub" data-i18n="f2s" data-en="Filters for AI-relevant events. Only surfaces opportunities 2 weeks in advance — eliminating noise" data-zh="筛选AI相关活动，仅显示提前2周的机会，消除噪音">Filters for AI-relevant events. Only surfaces opportunities 2 weeks in advance — eliminating noise</div>
+              <div class="flow-title">
+                <span class="en">Filter: AI Events Only</span>
+                <span class="zh">筛选：仅AI活动</span>
+              </div>
+              <div class="flow-sub">
+                <span class="en">Surfaces opportunities 2 weeks in advance — eliminating noise, only relevant events</span>
+                <span class="zh">仅显示提前2周的机会，消除噪音，仅保留相关活动</span>
+              </div>
             </div>
           </div>
-          <div style="margin-left:22px;padding-left:18px;border-left:2px solid rgba(255,255,255,.07);height:24px"></div>
+          <div style="margin-left:21px;padding-left:16px;border-left:2px solid rgba(255,255,255,.07);height:20px"></div>
           <div class="flow-step">
             <div class="flow-icon" style="background:rgba(88,101,242,.15);border:1px solid rgba(88,101,242,.3)">📢</div>
             <div style="width:14px;flex-shrink:0"></div>
             <div class="flow-content" style="border-left:none">
-              <div class="flow-title" data-i18n="f3t" data-en="Discord Webhook — 8:00 AM Daily" data-zh="Discord Webhook — 每日上午8:00">Discord Webhook — 8:00 AM Daily</div>
-              <div class="flow-sub" data-i18n="f3s" data-en="Pushes formatted event digest to shared team Discord channel. Zero manual effort. Full team visibility." data-zh="将格式化活动摘要推送至团队共享Discord频道。零人工投入，全队可见。">Pushes formatted event digest to shared team Discord channel. Zero manual effort. Full team visibility.</div>
+              <div class="flow-title">
+                <span class="en">Discord Webhook — 8:00 AM Daily</span>
+                <span class="zh">Discord Webhook — 每日上午8:00</span>
+              </div>
+              <div class="flow-sub">
+                <span class="en">Pushes formatted event digest to team Discord. Zero manual effort. Full team visibility.</span>
+                <span class="zh">将格式化摘要推送至团队Discord。零人工投入，全队可见。</span>
+              </div>
             </div>
           </div>
         </div>
-
-        <div style="margin-top:20px;display:flex;align-items:center;gap:16px;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);border-radius:12px;padding:14px 18px">
-          <div class="time-saved">
+        <div style="margin-top:16px;display:flex;align-items:center;gap:14px;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.2);border-radius:12px;padding:12px 16px">
+          <div style="display:flex;align-items:baseline;gap:5px;flex-shrink:0">
             <span class="time-num">1–2h</span>
-            <span class="time-label" data-i18n="ts_label" data-en="saved<br>daily" data-zh="每日<br>节省">saved<br>daily</span>
+            <div class="time-label" style="margin-left:4px">
+              <span class="en">saved daily</span>
+              <span class="zh">每日节省</span>
+            </div>
           </div>
-          <div style="width:1px;height:36px;background:rgba(255,255,255,.07)"></div>
-          <div style="font-size:12px;color:var(--muted);line-height:1.5" data-i18n="ts_sub" data-en="Time reallocated to personal outreach &amp; speaker sourcing — directly contributing to 55 RSVPs and 5 confirmed demo speakers this week" data-zh="时间重新分配至个人外联与演讲者开发，直接促成本周55个报名和5位确认演讲者">Time reallocated to personal outreach &amp; speaker sourcing — directly contributing to 55 RSVPs and 5 confirmed demo speakers this week</div>
+          <div style="width:1px;height:32px;background:rgba(255,255,255,.07);flex-shrink:0"></div>
+          <div>
+            <div style="font-size:11px;color:var(--muted);line-height:1.5">Time reallocated to outreach &amp; speaker sourcing — directly contributing to 55 RSVPs and 5 demo speakers.</div>
+            <div style="font-size:10px;font-family:'Noto Sans SC',sans-serif;color:var(--muted2);margin-top:3px;line-height:1.4">时间重新分配至外联与演讲者开发，直接促成本周55个报名和5位演示嘉宾。</div>
+          </div>
         </div>
       </div>
-
-      <!-- Meta cards -->
       <div class="n8n-meta">
         <div class="meta-card">
-          <div class="meta-label green" data-i18n="wg_label" data-en="What's Great" data-zh="优势">What's Great</div>
-          <div class="meta-item" data-i18n="wg1" data-en="Shared Discord channel gives full team real-time event intelligence" data-zh="共享Discord频道为全团队提供实时活动情报">Shared Discord channel gives full team real-time event intelligence</div>
-          <div class="meta-item" data-i18n="wg2" data-en="Runs automatically — zero daily effort required" data-zh="自动运行——无需每日人工操作">Runs automatically — zero daily effort required</div>
-          <div class="meta-item" data-i18n="wg3" data-en="2-week advance window ensures timely outreach" data-zh="提前2周的窗口确保及时外联">2-week advance window ensures timely outreach</div>
+          <div class="meta-label green">What's Great <span class="zh">优势</span></div>
+          <div class="meta-item">
+            <span class="en">Shared Discord channel gives full team real-time event intelligence</span>
+            <span class="zh">共享Discord频道为全团队提供实时活动情报</span>
+          </div>
+          <div class="meta-item">
+            <span class="en">Runs automatically — zero daily effort required</span>
+            <span class="zh">自动运行——无需每日人工操作</span>
+          </div>
+          <div class="meta-item">
+            <span class="en">2-week advance window ensures timely outreach</span>
+            <span class="zh">提前2周的窗口确保及时外联</span>
+          </div>
         </div>
         <div class="meta-card">
-          <div class="meta-label gold" data-i18n="wi_label" data-en="What Can Be Improved" data-zh="待改进项">What Can Be Improved</div>
-          <div class="meta-item" data-i18n="wi1" data-en="LinkedIn hyperlink scraping — not yet extracted" data-zh="LinkedIn超链接抓取——尚未提取">LinkedIn hyperlink scraping — not yet extracted</div>
-          <div class="meta-item" data-i18n="wi2" data-en="AI-generated outreach copy for each event lead" data-zh="为每个活动潜在客户生成AI外联文案">AI-generated outreach copy for each event lead</div>
+          <div class="meta-label gold">What Can Be Improved <span class="zh">待改进项</span></div>
+          <div class="meta-item">
+            <span class="en">LinkedIn hyperlink scraping — not yet extracted</span>
+            <span class="zh">LinkedIn链接抓取——尚未提取</span>
+          </div>
+          <div class="meta-item">
+            <span class="en">AI-generated outreach copy per event lead</span>
+            <span class="zh">为每个活动线索生成AI外联文案</span>
+          </div>
         </div>
         <div class="meta-card">
-          <div class="meta-label rose" data-i18n="bl_label" data-en="Current Blocker" data-zh="当前阻碍">Current Blocker</div>
-          <div class="meta-item" data-i18n="bl1" data-en="Apify API free tier usage limit — upgrade needed for scale" data-zh="Apify API免费套餐使用限制——扩展需升级">Apify API free tier usage limit — upgrade needed for scale</div>
+          <div class="meta-label rose">Current Blocker <span class="zh">当前阻碍</span></div>
+          <div class="meta-item">
+            <span class="en">Apify API free tier usage limit — upgrade needed for scale</span>
+            <span class="zh">Apify API免费套餐限制——扩展需升级</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ SLIDE 5 — GOAL AUDIT COMPARISON ══════════════════════════════════ -->
+<!-- ═══ SLIDE 5 ═══════════════════════════════════════════════════════════ -->
 <section class="slide" id="s4">
   <div class="orb o1" style="bottom:-100px;top:auto;left:-100px;right:auto"></div><div class="orb o3"></div>
   <div class="pnum">05 / 05</div>
   <div class="inner">
-    <div class="fi d1" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:20px">
-      <div>
-        <div class="badge" data-i18n="b5" data-en="Week 12 · Goal Audit" data-zh="第12周 · 目标审计">Week 12 · Goal Audit</div>
-        <h2 style="margin-bottom:0" data-i18n="h5" data-en="Monday goals vs Friday output." data-zh="周一目标 vs 周五成果。">Monday goals vs Friday output.</h2>
+    <div class="fi d1" style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:18px">
+      <div style="flex:1">
+        <div class="badge">Week 12 · Goal Audit <span class="zh">第12周 · 目标审计</span></div>
+        <h2 style="margin-bottom:0">
+          <span class="en">Monday goals vs Friday output.</span>
+          <span class="zh">周一目标 vs 周五成果。</span>
+        </h2>
       </div>
-      <div style="display:flex;align-items:baseline;gap:4px;margin-left:auto">
+      <div style="display:flex;align-items:baseline;gap:4px;padding-top:8px">
         <span class="audit-n">~9</span>
         <span class="audit-d">/10</span>
       </div>
@@ -417,51 +471,69 @@ h3{font-size:clamp(14px,1.5vw,18px);font-weight:700;line-height:1.3;margin-botto
 
       <!-- GOAL 1 -->
       <div class="gc-card gc-g1">
-        <div class="gc-num" data-i18n="g1n" data-en="Goal 1 · Event RSVPs" data-zh="目标1 · 活动报名">Goal 1 · Event RSVPs</div>
-        <div class="gc-title" data-i18n="g1t" data-en="Generate 50+ RSVPs, confirm demo speakers &amp; Show &amp; Ask applications" data-zh="获取50+报名，确认演示嘉宾和展示&提问申请">Generate 50+ RSVPs, confirm demo speakers &amp; Show &amp; Ask applications</div>
-        <div>
-          <div class="gc-section green" data-i18n="hit_label" data-en="✓ Hit" data-zh="✓ 达成">✓ Hit</div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g1h1" data-en="55 RSVPs confirmed — exceeded 50 target by 10%" data-zh="55个报名确认，超过50人目标10%">55 RSVPs confirmed — exceeded 50 target by 10%</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g1h2" data-en="5 demo speakers confirmed — exceeded 3-speaker target by 67%" data-zh="5位演示嘉宾确认，超过3人目标67%">5 demo speakers confirmed — exceeded 3-speaker target by 67%</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g1h3" data-en="3 Show &amp; Ask applications — open format, no hard cap" data-zh="3个展示&提问申请——开放格式，无硬性上限">3 Show &amp; Ask applications — open format, no hard cap</span></div>
+        <div class="gc-num">
+          <span class="en">Goal 1 · Event RSVPs</span>
+          <span class="zh">目标1 · 活动报名</span>
+        </div>
+        <div class="gc-title">
+          <span class="en">Generate 50+ RSVPs, confirm demo speakers &amp; applications</span>
+          <span class="zh">获取50+报名，确认演示嘉宾和申请</span>
         </div>
         <div>
-          <div class="gc-section rose" data-i18n="miss_label" data-en="⚠ External Blockers" data-zh="⚠ 外部阻碍">⚠ External Blockers</div>
-          <div class="gc-item"><span class="cross">✗</span><span data-i18n="g1m1" data-en="e27 content not published despite 3 follow-ups" data-zh="尽管跟进3次，e27内容仍未发布">e27 content not published despite 3 follow-ups</span></div>
-          <div class="gc-item"><span class="cross">✗</span><span data-i18n="g1m2" data-en="NUS/NTU no response — longer lead time required" data-zh="NUS/NTU无回应——需要更长的提前期">NUS/NTU no response — longer lead time required</span></div>
+          <div class="gc-section green"><span class="en">✓ Hit</span><span class="zh">达成</span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">55 RSVPs confirmed — exceeded 50 target by 10%<span class="zh">55个报名，超目标10%</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">5 demo speakers — exceeded 3-speaker target by 67%<span class="zh">5位演示嘉宾，超目标67%</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">3 Show &amp; Ask applications received<span class="zh">3份展示&提问申请</span></span></div>
         </div>
-        <div class="gc-verdict vg" data-i18n="g1v" data-en="✓ Core target exceeded" data-zh="✓ 核心目标超额完成">✓ Core target exceeded</div>
+        <div>
+          <div class="gc-section rose"><span class="en">⚠ External Blockers</span><span class="zh">外部阻碍</span></div>
+          <div class="gc-item"><span class="cross">✗</span><span class="txt">e27 not published despite 3 follow-ups<span class="zh">尽管3次跟进，e27仍未发布</span></span></div>
+          <div class="gc-item"><span class="cross">✗</span><span class="txt">NUS/NTU no response — needs longer lead time<span class="zh">NUS/NTU无回应——需更长提前期</span></span></div>
+        </div>
+        <div class="gc-verdict vg">✓ Core target exceeded <span class="zh">核心目标超额完成</span></div>
       </div>
 
       <!-- GOAL 2 -->
       <div class="gc-card gc-g2">
-        <div class="gc-num" data-i18n="g2n" data-en="Goal 2 · n8n Automation" data-zh="目标2 · n8n自动化">Goal 2 · n8n Automation</div>
-        <div class="gc-title" data-i18n="g2t" data-en="Deploy live n8n workflow saving 2+ hrs/week" data-zh="部署实时n8n工作流，每周节省2+小时">Deploy live n8n workflow saving 2+ hrs/week</div>
-        <div>
-          <div class="gc-section green" data-i18n="hit_label2" data-en="✓ Exceeded" data-zh="✓ 超额完成">✓ Exceeded</div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g2h1" data-en="Workflow live — verified execution log confirmed" data-zh="工作流已上线——执行日志已验证">Workflow live — verified execution log confirmed</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g2h2" data-en="1–2 hrs saved daily (exceeded 2 hrs/week target)" data-zh="每日节省1–2小时（超过每周2小时目标）">1–2 hrs saved daily (exceeded 2 hrs/week target)</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g2h3" data-en="Saved time directly drove 55 RSVPs + 5 demo speakers" data-zh="节省的时间直接推动了55个报名和5位演示嘉宾">Saved time directly drove 55 RSVPs + 5 demo speakers</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g2h4" data-en="Shared Discord team asset — zero daily maintenance" data-zh="共享Discord团队资产——零日常维护">Shared Discord team asset — zero daily maintenance</span></div>
+        <div class="gc-num">
+          <span class="en">Goal 2 · n8n Automation</span>
+          <span class="zh">目标2 · n8n自动化</span>
         </div>
-        <div class="gc-verdict vs" data-i18n="g2v" data-en="🌟 Phenomenal" data-zh="🌟 卓越表现">🌟 Phenomenal</div>
+        <div class="gc-title">
+          <span class="en">Deploy live n8n workflow saving 2+ hrs/week</span>
+          <span class="zh">部署实时n8n工作流，每周节省2+小时</span>
+        </div>
+        <div>
+          <div class="gc-section green"><span class="en">✓ Exceeded</span><span class="zh">超额完成</span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">Workflow live — execution log confirmed<span class="zh">工作流已上线，执行日志已验证</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">1–2 hrs saved daily (vs 2 hrs/week target)<span class="zh">每日节省1–2小时，超过每周目标</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">Saved time drove 55 RSVPs + 5 demo speakers<span class="zh">节省时间直接推动55个报名和5位嘉宾</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">Shared Discord team asset — zero maintenance<span class="zh">共享Discord资产——零日常维护</span></span></div>
+        </div>
+        <div class="gc-verdict vs">🌟 Phenomenal <span class="zh">卓越表现</span></div>
       </div>
 
       <!-- GOAL 3 -->
       <div class="gc-card gc-g3">
-        <div class="gc-num" data-i18n="g3n" data-en="Goal 3 · RiteSet" data-zh="目标3 · RiteSet">Goal 3 · RiteSet</div>
-        <div class="gc-title" data-i18n="g3t" data-en="App audit, branding sign-off, App Store submission" data-zh="应用审计、品牌确认、App Store提交">App audit, branding sign-off, App Store submission</div>
-        <div>
-          <div class="gc-section green" data-i18n="hit_label3" data-en="✓ Done" data-zh="✓ 已完成">✓ Done</div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g3h1" data-en="Full app audit — critical bugs identified and logged" data-zh="完整应用审计——关键问题已识别并记录">Full app audit — critical bugs identified and logged</span></div>
-          <div class="gc-item"><span class="tick">✓</span><span data-i18n="g3h2" data-en="App Store submission made — Apple review received" data-zh="App Store已提交——收到Apple审核">App Store submission made — Apple review received</span></div>
+        <div class="gc-num">
+          <span class="en">Goal 3 · RiteSet</span>
+          <span class="zh">目标3 · RiteSet</span>
+        </div>
+        <div class="gc-title">
+          <span class="en">Full audit, branding sign-off, App Store submission</span>
+          <span class="zh">完整审计、品牌确认、App Store提交</span>
         </div>
         <div>
-          <div class="gc-section gold" data-i18n="prog_label" data-en="⚡ In Progress" data-zh="⚡ 进行中">⚡ In Progress</div>
-          <div class="gc-item"><span class="warn">⚡</span><span data-i18n="g3p1" data-en="Apple rejected: sandbox access + medical disclaimer — both being fixed for resubmission" data-zh="Apple拒绝：沙箱访问+医疗免责声明——两项均在修复中待重新提交">Apple rejected: sandbox access + medical disclaimer — both being fixed for resubmission</span></div>
-          <div class="gc-item"><span class="warn">⚡</span><span data-i18n="g3p2" data-en="Design sign-off moved to Week 13 — bandwidth constraint" data-zh="设计确认移至第13周——带宽限制">Design sign-off moved to Week 13 — bandwidth constraint</span></div>
+          <div class="gc-section green"><span class="en">✓ Done</span><span class="zh">已完成</span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">Full app audit — critical bugs identified &amp; logged<span class="zh">完整应用审计，关键问题已记录</span></span></div>
+          <div class="gc-item"><span class="tick">✓</span><span class="txt">App Store submission made — Apple review received<span class="zh">App Store已提交，收到Apple审核</span></span></div>
         </div>
-        <div class="gc-verdict vw" data-i18n="g3v" data-en="⚡ Partial — resubmission in progress" data-zh="⚡ 部分完成——重新提交进行中">⚡ Partial — resubmission in progress</div>
+        <div>
+          <div class="gc-section gold"><span class="en">⚡ In Progress</span><span class="zh">进行中</span></div>
+          <div class="gc-item"><span class="warn">⚡</span><span class="txt">Apple rejected: sandbox + medical disclaimer — fixing<span class="zh">Apple拒绝：沙箱+医疗免责声明，修复中</span></span></div>
+          <div class="gc-item"><span class="warn">⚡</span><span class="txt">Design sign-off moved to Week 13<span class="zh">设计确认移至第13周</span></span></div>
+        </div>
+        <div class="gc-verdict vw">⚡ Partial — resubmission in progress <span class="zh">部分完成</span></div>
       </div>
 
     </div>
@@ -469,62 +541,12 @@ h3{font-size:clamp(14px,1.5vw,18px);font-weight:700;line-height:1.3;margin-botto
 </section>
 
 <script>
-const zh={
-  b1:'What\'s Next · 第一期 · 3月27日',h1:'活动概览与演讲嘉宾。',luma_label:'Lu.ma 实时数据',
-  open_spk:'开场演讲嘉宾',spk1r:'创始人，鲸鱼艺术馆',spk2r:'创始人，Hashmeta',spk3r:'副司长，金融基础设施与AI办公室，MAS',
-  demo_spk:'已确认演示嘉宾',
-  b2:'演示阵容 · 5款产品',h2:'即将演示的产品。',s2:'真实AI产品——构建、上线，现场演示。无幻灯片，无理论。',
-  dp0:'SoulGarden 与 RiteSet',dd0:'从创意到上线产品仅需3天——完整的ChronoAI技术工作流程、设计流程和GTM过程，全程直播。',
-  dd1:'互动阅读应用，让孩子与故事角色对话，让每本书都变成一次冒险。',
-  dd2:'将销售对话转化为可执行的情报，帮助以关系为导向的销售人员达成更多交易。',
-  dd3:'AI代理人格开放平台——浏览、构建并部署可供代理即时采用的角色身份。',
-  dd4:'生成式引擎优化——让内容对机器可读，使AI引擎引用您而非竞争对手。',
-  b3:'52位注册者 · 精选阵容',h3:'谁在这个房间里。',s3:'创始人、投资者、运营者和行业领袖的代表——这正是我们为之设计的阵容。',
-  a1r:'董事总经理',a2r:'亚太区首席执行官',a3r:'首席执行官',a4r:'平台',a5r:'合伙人',a6r:'首席执行官',a7r:'产品',a8r:'创始人',a9r:'经理',a10r:'AI负责人',a11r:'首席数字官',a12r:'工程负责人',a13r:'合作伙伴',a14r:'首席执行官',a15r:'组织者',a16r:'增长副总裁',
-  b4:'目标2 · n8n自动化 · 已上线',h4:'自动化活动情报。<br>每日节省1–2小时。',
-  flow_label:'自动化流程',
-  f1t:'Apify Lu.ma 爬虫',f1s:'每日抓取Lu.ma活动列表——组织者详情、演讲者信息、LinkedIn链接',
-  f2t:'筛选：仅AI活动',f2s:'筛选AI相关活动，仅显示提前2周的机会，消除噪音',
-  f3t:'Discord Webhook — 每日上午8:00',f3s:'将格式化活动摘要推送至团队共享Discord频道。零人工投入，全队可见。',
-  ts_label:'每日<br>节省',ts_sub:'时间重新分配至个人外联与演讲者开发，直接促成本周52个报名和5位确认演讲者',
-  wg_label:'优势',wg1:'共享Discord频道为全团队提供实时活动情报',wg2:'自动运行——无需每日人工操作',wg3:'提前2周的窗口确保及时外联',
-  wi_label:'待改进项',wi1:'LinkedIn超链接抓取——尚未提取',wi2:'为每个活动潜在客户生成AI外联文案',
-  bl_label:'当前阻碍',bl1:'Apify API免费套餐使用限制——扩展需升级',
-  b5:'第12周 · 目标审计',h5:'周一目标 vs 周五成果。',
-  g1n:'目标1 · 活动报名',g1t:'获取50+报名，确认演示嘉宾和展示&提问申请',
-  hit_label:'✓ 达成',g1h1:'52个报名确认，超过50人目标',g1h2:'5位演示嘉宾确认，超过3人目标67%',g1h3:'3个展示&提问申请——开放格式，无硬性上限',
-  miss_label:'⚠ 外部阻碍',g1m1:'尽管跟进3次，e27内容仍未发布',g1m2:'NUS/NTU无回应——需要更长的提前期',
-  g1v:'✓ 核心目标超额完成',
-  g2n:'目标2 · n8n自动化',g2t:'部署实时n8n工作流，每周节省2+小时',
-  hit_label2:'✓ 超额完成',g2h1:'工作流已上线——执行日志已验证',g2h2:'每日节省1–2小时（超过每周2小时目标）',g2h3:'节省的时间直接推动了52个报名和5位演示嘉宾',g2h4:'共享Discord团队资产——零日常维护',
-  g2v:'🌟 卓越表现——机器人称之为突破',
-  g3n:'目标3 · RiteSet',g3t:'应用审计、品牌确认、App Store提交',
-  hit_label3:'✓ 已完成',g3h1:'完整应用审计——关键问题已识别并记录',g3h2:'App Store已提交——收到Apple审核',
-  prog_label:'⚡ 进行中',g3p1:'Apple拒绝：沙箱访问+医疗免责声明——两项均在修复中待重新提交',g3p2:'设计确认移至第13周——带宽限制',
-  g3v:'⚡ 部分完成——重新提交进行中'
-};
-
-let lang='en';
-function setLang(l){
-  lang=l;
-  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('active',b.textContent.trim()===(l==='en'?'EN':'中文')));
-  document.body.classList.add('fading');
-  setTimeout(()=>{
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const k=el.getAttribute('data-i18n');
-      if(l==='zh'&&zh[k])el.innerHTML=zh[k];
-      else{const en=el.getAttribute('data-en');if(en)el.innerHTML=en;}
-    });
-    document.body.classList.remove('fading');
-  },180);
-}
-
-// Nav dots
 const slides=document.querySelectorAll('.slide');
 const nav=document.getElementById('navDots');
 slides.forEach((_,i)=>{
   const d=document.createElement('button');
-  d.className='nd';d.onclick=()=>slides[i].scrollIntoView({behavior:'smooth'});
+  d.className='nd';d.setAttribute('aria-label','Slide '+(i+1));
+  d.onclick=()=>slides[i].scrollIntoView({behavior:'smooth'});
   nav.appendChild(d);
 });
 const dots=document.querySelectorAll('.nd');
@@ -532,12 +554,8 @@ const obs=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){const i=[...slides].indexOf(e.target);dots.forEach((d,j)=>d.classList.toggle('active',i===j));}
 }),{threshold:.45});
 slides.forEach(s=>obs.observe(s));
-
-// Fade in
 const fobs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
 document.querySelectorAll('.fi').forEach(el=>fobs.observe(el));
-
-// Keyboard nav
 document.addEventListener('keydown',e=>{
   const i=[...slides].findIndex(s=>{const r=s.getBoundingClientRect();return r.top>=-10&&r.top<window.innerHeight/2;});
   if(e.key==='ArrowDown'&&i<slides.length-1)slides[i+1].scrollIntoView({behavior:'smooth'});
